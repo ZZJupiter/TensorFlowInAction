@@ -1,4 +1,4 @@
-#%%
+# %%
 # Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +17,7 @@
 # Create the model
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
+
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 sess = tf.InteractiveSession()
 
@@ -42,8 +43,8 @@ train_step = tf.train.AdagradOptimizer(0.3).minimize(cross_entropy)
 # Train
 tf.global_variables_initializer().run()
 for i in range(3000):
-  batch_xs, batch_ys = mnist.train.next_batch(100)
-  train_step.run({x: batch_xs, y_: batch_ys, keep_prob: 0.75})
+    batch_xs, batch_ys = mnist.train.next_batch(100)
+    train_step.run({x: batch_xs, y_: batch_ys, keep_prob: 0.75})
 
 # Test trained model
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
